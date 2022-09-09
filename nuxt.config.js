@@ -1,3 +1,7 @@
+import { defineNuxtConfig } from 'nuxt'
+
+
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -34,8 +38,7 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
+  modules: ['@nuxtjs/sanity'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
