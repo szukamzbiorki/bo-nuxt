@@ -1,7 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
-
-
-
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -38,7 +34,7 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/sanity'],
+  modules: ['@nuxtjs/sanity/module'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -47,5 +43,10 @@ export default {
   pageTransition: {
     name: 'page',
     mode: 'out-in',
-  }
+  },
+  sanity: {
+    withCredentials: true,
+  },
 }
+
+

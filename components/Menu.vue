@@ -1,18 +1,29 @@
 <template>
-<div class="menu">
-  <!-- <NuxtLink v-bind="key" v-for="item in menu" :to="item.router">
-    <img class="shape" :src="`/images/${item.iconurl}.svg`" alt="">
-  </NuxtLink> -->
-  <!-- <img v-for="item in menu" :key="item.id" class="shape" :src="`/images/${item.iconurl}`" alt=""> -->
-</div>
+  <div class="menu">
+    <NuxtLink :key="item.id" v-for="item in menuslots" :to="item.router">
+      <img class="shape" :src="`/images/${item.iconurl}.svg`" alt="">
+    </NuxtLink>
+    <!-- <img v-for="item in menu" :key="item.id" class="shape" :src="`/images/${item.iconurl}`" alt=""> -->
+  </div>
 </template>
 
 <script>
+import { groq } from '@nuxtjs/sanity'
+
+const query = groq`{ "menuslots": *[_type == "menuslot"] }`
+
 export default {
   name: 'Menu',
-  components: {},
-  props: {
-    menu: Object,
+  data() {
+    return {
+      menuslots: []
+    }
+  },
+  asyncData({ $sanity }) {
+    return $sanity.fetch(query)
+  },
+  created() {
+    console.log(this.menuslots)
   }
 }
 </script>

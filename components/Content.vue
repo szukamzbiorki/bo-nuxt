@@ -1,16 +1,16 @@
 <template>
-<div class="mainContainer">
-  <div class="container">
-    <SingleWork v-for="work in works" :key="work.id" v-bind="work" />
+  <div class="mainContainer">
+    <div class="container">
+      <SingleWork v-for="work in works" :key="work.id" v-bind="work" />
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 
 export default {
   props: {
-    works: Object
+    works: []
   },
   computed: {
 

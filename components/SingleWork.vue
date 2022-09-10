@@ -1,8 +1,8 @@
 <template>
-<div>
-  <WorkDescription :title="title" :size="size" :medium="medium" :description="description" />
-  <Workimages :images="images"></Workimages>
-</div>
+  <div class="dupa">
+    <WorkDescription :title="title" :size="size" :medium="medium" :description="description" />
+    <Workimages :images="images"></Workimages>
+  </div>
 </template>
 
 <script>
@@ -31,5 +31,7 @@ export default {
 
 
 <style>
-
+.dupa {
+  max-height: 100%;
+}
 </style>

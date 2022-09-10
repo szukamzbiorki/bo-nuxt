@@ -1,9 +1,9 @@
 <template>
-<div class="wrapper">
-<Menu :menu="data"></Menu>
- <NuxtChild  />
- <Right/>
-</div>
+  <div class="wrapper">
+    <Menu :menu="data"></Menu>
+    <NuxtChild />
+    <Right />
+  </div>
 </template>
 
 <script>
