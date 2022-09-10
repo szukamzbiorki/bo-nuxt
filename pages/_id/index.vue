@@ -10,7 +10,7 @@
 <script>
 import { groq } from '@nuxtjs/sanity'
 
-const query = groq`{ "works": *[_type == "work"] }`
+
 
 export default {
   name: 'Home',
@@ -48,10 +48,14 @@ export default {
   //   return this.data = await this.$sanity.fetch(query)
   // },
 
-  asyncData({ $sanity }) {
-    return $sanity.fetch(query)
+  methods: {
+    fetchData(query) {
+      return this.$sanity.fetch(query)
+    }
   },
-  created() {
+  async created() {
+    const query = '*[_type == "work"]{title,size,medium,description,imagesGallery[]{asset->{url}}}'
+    this.works = await this.fetchData(query)
     console.log(this.works)
   }
 

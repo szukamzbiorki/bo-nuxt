@@ -1,7 +1,7 @@
 <template>
   <div class="dupa">
     <WorkDescription :title="title" :size="size" :medium="medium" :description="description" />
-    <Workimages :images="images"></Workimages>
+    <Workimages :images="imagesGallery"></Workimages>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
     size: String,
     medium: String,
     description: String,
-    images: Object
+    imagesGallery: Object
   },
   async created() {
     // this.images = await this.fetchImages()

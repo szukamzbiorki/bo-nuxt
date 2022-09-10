@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
     <NuxtLink :key="item.id" v-for="item in menuslots" :to="item.router">
-      <img class="shape" :src="`/images/${item.iconurl}.svg`" alt="">
+      <img class="shape" :src="`${item.icon.asset.url}`" alt="">
     </NuxtLink>
     <!-- <img v-for="item in menu" :key="item.id" class="shape" :src="`/images/${item.iconurl}`" alt=""> -->
   </div>
@@ -10,7 +10,7 @@
 <script>
 import { groq } from '@nuxtjs/sanity'
 
-const query = groq`{ "menuslots": *[_type == "menuslot"] }`
+
 
 export default {
   name: 'Menu',
@@ -19,10 +19,14 @@ export default {
       menuslots: []
     }
   },
-  asyncData({ $sanity }) {
-    return $sanity.fetch(query)
+  methods: {
+    fetchData(query) {
+      return this.$sanity.fetch(query)
+    }
   },
-  created() {
+  async created() {
+    const query = '*[_type == "menuslot"]{id,router,icon{asset -> { url }}}'
+    this.menuslots = await this.fetchData(query)
     console.log(this.menuslots)
   }
 }
