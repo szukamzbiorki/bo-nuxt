@@ -44,21 +44,12 @@ export default {
   display: none;
 }
 
-.container>div {
-  margin-right: var(--margin1);
-}
-
-.container>img {
+.container * {
   margin-right: var(--margin1);
 }
 
 .descriptionBox {
   height: 100%;
   min-width: 300px;
-}
-
-.workImage {
-  height: 100%;
-  width: auto;
 }
 </style>

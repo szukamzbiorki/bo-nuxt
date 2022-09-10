@@ -25,7 +25,7 @@ export default {
     }
   },
   async created() {
-    const query = '*[_type == "menuslot"]{id,router,icon{asset -> { url }}}'
+    const query = '*[_type == "menuslot"]| order(id){id,router,icon{asset -> { url }}}'
     this.menuslots = await this.fetchData(query)
     console.log(this.menuslots)
   }

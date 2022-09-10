@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="gallery">
     <img :key="image.id" v-for="image in images" :src="image.asset.url" class="workImage" />
   </div>
 </template>
@@ -22,3 +22,16 @@ export default {
   }
 }
 </script>
+
+<style>
+.gallery {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.workImage {
+  height: 100%;
+  width: auto;
+}
+</style>

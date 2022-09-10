@@ -1,5 +1,5 @@
 <template>
-  <div class="dupa">
+  <div class="singleWork">
     <WorkDescription :title="title" :size="size" :medium="medium" :description="description" />
     <Workimages :images="imagesGallery"></Workimages>
   </div>
@@ -31,10 +31,10 @@ export default {
 
 
 <style>
-.dupa {
+.singleWork {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
 }
 </style>
