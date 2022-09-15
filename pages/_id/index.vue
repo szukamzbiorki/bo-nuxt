@@ -54,12 +54,12 @@ export default {
     }
   },
   async created() {
+    const numerek = this.$route.params.id
     const query = '*[_type == "work"]{title,size,medium,description,imagesGallery[]{asset->{url}}}'
     this.works = await this.fetchData(query)
     console.log(this.works)
+    console.log(numerek)
   }
-
-
 }
 </script>
   

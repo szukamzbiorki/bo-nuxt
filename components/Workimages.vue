@@ -7,7 +7,7 @@
 <script>
 export default {
   props: {
-    images: Object
+    images: []
   },
   async created() {
     // this.images = await this.fetchImages()

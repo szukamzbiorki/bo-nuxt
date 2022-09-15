@@ -13,7 +13,7 @@ export default {
     size: String,
     medium: String,
     description: String,
-    imagesGallery: Object
+    imagesGallery: []
   },
   async created() {
     // this.images = await this.fetchImages()
