@@ -51,6 +51,11 @@ export default {
   // },
 
   methods: {
+    // fetchData(query, number) {
+    //   return this.$sanity.fetch(query, {
+    //     number: number
+    //   })
+    // }
     fetchData(query) {
       return this.$sanity.fetch(query)
     }
@@ -58,6 +63,9 @@ export default {
   async created() {
     const numerek = this.$route.params.id
     const query = '*[_type == "work"]{title,size,medium,description,imagesGallery[]{asset->{url}}}'
+    // const query = '*[_type == "work" && whatever == "$number"]{title,size,medium,description,imagesGallery[]{asset->{url}}}'
+    // const query = `*[_type == "work" && whatever == "${numerek}"]{title,size,medium,description,imagesGallery[]{asset->{url}}}`
+    // this.works = await this.fetchData(query, numerek)
     this.works = await this.fetchData(query)
     console.log(this.works)
     console.log(numerek)

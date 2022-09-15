@@ -6,11 +6,19 @@
         <router-link to="/info">
           <div class="info">INFO</div>
         </router-link>
-        <router-link to="/bio">
+        <router-link to="/info">
           <div class="bio">BIO</div>
         </router-link>
-        <router-link to="/bio">
+        <router-link to="/info">
           <div class="contact">CONTACT</div>
+        </router-link>
+      </div>
+      <div class="menubox">
+        <router-link to="/1">
+          <div class="workclick">WORK</div>
+        </router-link>
+        <router-link to="/bio">
+          <div class="workclick">SERIES</div>
         </router-link>
       </div>
     </div>
@@ -85,6 +93,8 @@ a {
   align-content: space-between;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: calc(var(--margin1) / 2);
+
 }
 
 .menubox * {
@@ -92,5 +102,10 @@ a {
   padding-top: var(--paddingright2);
   padding-bottom: var(--paddingright2);
   border: 0;
+}
+
+.workclick {
+  border: 1px black solid;
+  background-color: white !important;
 }
 </style>

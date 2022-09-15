@@ -39,7 +39,7 @@ export default {
   width: auto;
   height: 100%;
   display: block;
-  overflow: scroll;
+  overflow: hidden;
   /* padding-left: var(--margin1); */
   padding-left: 0;
 }

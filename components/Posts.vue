@@ -23,5 +23,10 @@ export default {
     display: block;
     white-space: nowrap;
     height: calc(((100% - 20px) / 2));
+    overflow: scroll;
+}
+
+.workrow::-webkit-scrollbar {
+    display: none;
 }
 </style>

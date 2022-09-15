@@ -1,12 +1,12 @@
-<template><div>
-<Menu :menu="data" />
-<router-view :works="works" :key="$route.path" v-slot="{ Component }">
-  <transition name="fade" mode="out-in">
-    <component v-if="wow" :is="Component" />
-  </transition>
-</router-view>
-</div>
-<!-- <Content :works="works" /> -->
+<template>
+  <div>
+    <router-view :works="works" :key="$route.path" v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component v-if="wow" :is="Component" />
+      </transition>
+    </router-view>
+  </div>
+  <!-- <Content :works="works" /> -->
 </template>
 
 <script>
@@ -45,7 +45,7 @@ export default {
     console.log(this.works);
     this.wow = true;
   }
-  
+
 }
 </script>
 
