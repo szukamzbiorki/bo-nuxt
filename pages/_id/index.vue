@@ -1,16 +1,18 @@
 <template>
   <div class="wrapper">
     <!-- <Menu :menu="data"></Menu> -->
-    <Menu></Menu>
-    <Content :works="works"></Content>
     <Right></Right>
+    <Content :works="works"></Content>
+
   </div>
 </template>
   
 <script>
 import { groq } from '@nuxtjs/sanity'
 
-
+if (process.browser) {
+  var Masonry = require('masonry-layout');
+}
 
 export default {
   name: 'Home',
@@ -69,7 +71,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 240px 1fr 200px;
   grid-template-rows: 1fr;
 }
 </style>

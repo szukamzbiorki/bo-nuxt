@@ -1,7 +1,8 @@
 <template>
   <div class="mainContainer">
     <div class="container">
-      <SingleWork v-for="work in works" :key="work.id" v-bind="work" />
+      <Posts :works="evenPosts" />
+      <Posts :works="oddPosts" />
     </div>
   </div>
 </template>
@@ -10,10 +11,15 @@
 
 export default {
   props: {
-    works: []
+    works: Array
   },
   computed: {
-
+    evenPosts() {
+      return this.works.filter((post, index) => index % 2 === 0);
+    },
+    oddPosts() {
+      return this.works.filter((post, index) => index % 2 !== 0);
+    },
   }
 }
 </script>
@@ -23,7 +29,7 @@ export default {
 .mainContainer {
   width: auto;
   max-height: 100vh;
-  grid-column: 2 / 3;
+  grid-column: 2 / 4;
   overflow: hidden;
   margin: var(--margin1);
   margin-left: 0;
@@ -32,24 +38,21 @@ export default {
 .container {
   width: auto;
   height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  display: block;
   overflow: scroll;
-  padding-left: var(--margin1);
+  /* padding-left: var(--margin1); */
+  padding-left: 0;
+}
+
+.container>.workrow:nth-child(1) {
+  margin-bottom: 20px;
 }
 
 .container::-webkit-scrollbar {
   display: none;
 }
 
-.container * {
+/* .container *:not(:last-child) {
   margin-right: var(--margin1);
-}
-
-.descriptionBox {
-  height: 100%;
-  min-width: 300px;
-}
+} */
 </style>

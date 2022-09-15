@@ -1,20 +1,20 @@
 <template>
-<div class="right">
-  <div class="infoBox">
-    <router-link to="/1"><img class="bologo" src="../static/assets/bologo.svg" alt=""></router-link>
-    <div class="menubox">
-      <router-link to="/info">
-        <div class="info">INFO</div>
-      </router-link>
-      <router-link to="/bio">
-        <div class="bio">BIO</div>
-      </router-link>
-      <router-link to="/bio">
-        <div class="contact">CONTACT</div>
-      </router-link>
+  <div class="right">
+    <div class="infoBox">
+      <router-link to="/1"><img class="bologo" src="../static/assets/bologo.svg" alt=""></router-link>
+      <div class="menubox">
+        <router-link to="/info">
+          <div class="info">INFO</div>
+        </router-link>
+        <router-link to="/bio">
+          <div class="bio">BIO</div>
+        </router-link>
+        <router-link to="/bio">
+          <div class="contact">CONTACT</div>
+        </router-link>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -28,10 +28,10 @@ a {
 }
 
 .right {
-  max-width: 250px;
+  max-width: 200px;
   height: 100vh;
   /* background-color: blue; */
-  grid-column: 3 / 4;
+  grid-column: 1 / 2;
   display: flex;
   flex-direction: column;
 }
@@ -39,7 +39,7 @@ a {
 .infoBox {
   position: absolute;
   top: var(--margin1);
-  max-width: 250px;
+  max-width: 200px;
   height: auto;
   /* background-color: grey; */
   display: flex;
@@ -47,7 +47,7 @@ a {
   justify-content: flex-end;
   align-content: flex-end;
   /* padding: 12px; */
-  margin-right: 0;
+  margin-left: var(--margin1);
   margin-bottom: var(--margin1);
   padding-right: var(--margin1);
   /* align-self: flex-end; */

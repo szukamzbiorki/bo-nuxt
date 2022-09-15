@@ -33,8 +33,11 @@ export default {
 <style>
 .singleWork {
   height: 100%;
-  display: flex;
-  flex-direction: row;
+  /* calc(100% - 5em); */
+  /* display: flex;
+  flex-direction: column; */
+  display: inline-block;
   /* justify-content: flex-start; */
+  margin-right: var(--margin1);
 }
 </style>
