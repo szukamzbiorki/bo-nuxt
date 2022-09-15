@@ -25,13 +25,22 @@ export default {
 
 <style>
 .gallery {
-  height: 100%;
+  margin-top: 4px;
+  /* background-color: grey; */
+  /* flex: 1 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: row; */
+  display: block;
+  height: calc(100% - 4em);
 }
 
 .workImage {
   height: 100%;
   width: auto;
+  margin-right: calc(var(--margin1) / 2);
+}
+
+.workImage:last-child {
+  margin-right: 0;
 }
 </style>

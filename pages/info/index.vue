@@ -1,8 +1,7 @@
 <template>
-<div class="wrapper">
-  <InfoBox v-if="done" />
-  <Right/>
-</div>
+  <div class="wrapper">
+    <InfoBox v-if="done" />
+  </div>
 </template>
 
 <script>
