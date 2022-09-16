@@ -38,6 +38,7 @@ export default {
   height: 100%;
   width: auto;
   margin-right: calc(var(--margin1) / 2);
+  cursor: pointer;
 }
 
 .workImage:last-child {

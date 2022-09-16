@@ -8,12 +8,6 @@
 </template>
   
 <script>
-import { groq } from '@nuxtjs/sanity'
-
-if (process.browser) {
-  var Masonry = require('masonry-layout');
-}
-
 export default {
   name: 'Home',
   data() {
@@ -24,41 +18,18 @@ export default {
     }
   },
   methods: {
-    // async fetchData() {
-    //   const res = await fetch("http://localhost:5001/alldata")
-    //   const data = await res.json()
-    //   return data
-    // }
-
   },
   computed: {
-    // destinationId() {
-    //   return parseInt(this.$route.params.id)
-    // },
-    // getWork() {
-    //   return this.data.find(content => content.menuslot === this.destinationId)
-    // }
   },
-  // async created() {
-  //   this.data = await this.fetchData();
-  //   this.works = await this.getWork.works;
-  //   console.log(this.works);
-  //   this.wow = true;
-  // },
-
-  // async fetch() {
-  //   return this.data = await this.$sanity.fetch(query)
-  // },
-
   methods: {
+    fetchData(query) {
+      return this.$sanity.fetch(query)
+    }
     // fetchData(query, number) {
     //   return this.$sanity.fetch(query, {
     //     number: number
     //   })
     // }
-    fetchData(query) {
-      return this.$sanity.fetch(query)
-    }
   },
   async created() {
     const numerek = this.$route.params.id

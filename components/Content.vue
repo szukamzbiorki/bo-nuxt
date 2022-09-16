@@ -1,8 +1,8 @@
 <template>
   <div class="mainContainer">
     <div class="container">
-      <Posts :works="evenPosts" />
-      <Posts :works="oddPosts" />
+      <Posts class="1" :works="evenPosts" />
+      <Posts class="2" :works="oddPosts" />
     </div>
   </div>
 </template>

@@ -1,78 +1,56 @@
 <template>
   <div class="wrapper">
     <!-- <Menu :menu="data"></Menu> -->
-    <Right />
-    <NuxtChild />
-
+    <Right></Right>
+    <Content :works="works"></Content>
+    <SingleWorkModal></SingleWorkModal>
   </div>
 </template>
-
+  
 <script>
 export default {
-  name: 'IndexPage'
+  name: "Home",
+  data() {
+    return {
+      data: [],
+      works: [],
+      wow: false
+    };
+  },
+  methods: {},
+  computed: {},
+  methods: {
+    fetchData(query) {
+      return this.$sanity.fetch(query);
+    }
+    // fetchData(query, number) {
+    //   return this.$sanity.fetch(query, {
+    //     number: number
+    //   })
+    // }
+  },
+  async created() {
+    const numerek = this.$route.params.id;
+    const query = "*[_type == \"work\"]{title,size,medium,description,imagesGallery[]{asset->{url}}}";
+    // const query = '*[_type == "work" && whatever == "$number"]{title,size,medium,description,imagesGallery[]{asset->{url}}}'
+    // const query = `*[_type == "work" && whatever == "${numerek}"]{title,size,medium,description,imagesGallery[]{asset->{url}}}`
+    // this.works = await this.fetchData(query, numerek)
+    this.works = await this.fetchData(query);
+    console.log(this.works);
+    console.log(numerek);
+  },
+  components: { SingleWorkModal }
 }
 </script>
-
-<style scoped>
-:root {
-  --margin1: 20px;
-  --white: #ffffff;
-  --paddingright: 6px;
-  --paddingright2: 1px;
-}
-
-@font-face {
-  font-family: 'VAG';
-  src: url("../static/assets/VAG Rounded Next SemiBold.ttf") format('truetype');
-}
-
-@font-face {
-  font-family: 'CMU';
-  src: url("../static/assets/cmu.ttf") format('truetype');
-}
-
-@font-face {
-  font-family: 'CMUI';
-  src: url("../static/assets/cmui.ttf") format('truetype');
-}
-
-@font-face {
-  font-family: 'DiGrotesk';
-  src: url("../static/assets/DiGrotesk-Regular.ttf") format('truetype');
-}
-
-@font-face {
-  font-family: 'Diatype';
-  src: url("../static/assets/ABCDiatypeSemi-Mono-Regular.otf") format('opentype');
-}
-
-body {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-}
-
-body * {
-  padding: 0;
-  margin: 0;
-  font-family: 'VAG';
-  letter-spacing: .075em;
-  line-height: 1.1em;
-}
-
-a {
-  color: black !important;
-  text-decoration: none !important;
-}
-
+  
+<style>
 .wrapper {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 240px 1fr 200px;
   grid-template-rows: 1fr;
 }
 </style>
+  
