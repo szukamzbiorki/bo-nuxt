@@ -39,5 +39,7 @@ export default {
   display: inline-block;
   /* justify-content: flex-start; */
   margin-right: var(--margin1);
+  transition: opacity 0.2s;
+  transition-timing-function: ease-out;
 }
 </style>

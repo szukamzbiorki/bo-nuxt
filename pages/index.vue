@@ -3,7 +3,7 @@
     <!-- <Menu :menu="data"></Menu> -->
     <Right></Right>
     <Content :works="works"></Content>
-    <SingleWorkModal></SingleWorkModal>
+    <!-- <SingleWorkModal></SingleWorkModal> -->
   </div>
 </template>
   
@@ -38,8 +38,7 @@ export default {
     this.works = await this.fetchData(query);
     console.log(this.works);
     console.log(numerek);
-  },
-  components: { SingleWorkModal }
+  }
 }
 </script>
   

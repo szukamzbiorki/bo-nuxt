@@ -1,6 +1,6 @@
 <template>
-    <div class="workrow" @click.capture="resize" @scroll="console">
-        <SingleWork @click="cipa" v-for="work in works" :key="work.id" v-bind="work" />
+    <div class="workrow">
+        <SingleWork @click.native="singleWorkToggle" v-for="work in works" :key="work.id" v-bind="work" />
     </div>
 </template>
 
@@ -16,55 +16,79 @@ export default {
         works: Array
     },
     methods: {
-        resize(event) {
-            let el = event.currentTarget
-            let elsibling
-            if (el.classList.contains("1")) {
-                elsibling = el.nextElementSibling
-                console.log(el)
-                console.log(elsibling)
+        singleWorkToggle(event) {
+            let clickedNode = event.currentTarget
+            let parent = clickedNode.parentElement
+            let parentSibling = this.getSibling(parent)
+            let close = document.querySelector(".close")
+            let siblings = this.getAllSiblings(clickedNode)
+
+            if (clickedNode.classList.contains("focused")) {
+                return
             } else {
-                elsibling = el.previousElementSibling
-                console.log(el)
-                console.log(elsibling)
-                // elsibling.style.marginBottom = "0"
-            }
-            // console.log(el)
-            // elsibling = el.nextElementSibling
-            // console.log(elsibling)
 
-            if (el.classList.contains("big") && el.classList.contains("1")) {
-                el.style.height = "calc(((100% - 20px) / 2))"
-                elsibling.style.height = "calc(((100% - 20px) / 2))"
-                el.style.marginBottom = "20px"
-                elsibling.style.marginBottom = "0"
-            } else if (el.classList.contains("big")) {
-                el.style.height = "calc(((100% - 20px) / 2))"
-                elsibling.style.height = "calc(((100% - 20px) / 2))"
-                el.style.marginBottom = "0"
-                elsibling.style.marginBottom = "20px"
-            }
-            else {
-                el.style.height = "calc(100%)"
-                elsibling.style.height = "0"
-                el.style.marginBottom = "0"
-                elsibling.style.marginBottom = "0"
+                siblings.forEach(element => {
+                    element.style.opacity = "0"
+                });
+                parentSibling.style.opacity = "0"
+
+                close.style.opacity = "100"
+
+                parent.style.height = "calc(100%)"
+                parentSibling.style.height = "0"
+                parent.style.marginBottom = "0"
+                parentSibling.style.marginBottom = "0"
             }
 
-            el.classList.toggle("big")
+            close.style.opacity = "100"
+            this.scrollToElement(clickedNode, parent)
+            console.log("after-scrolled")
+            console.log(parent.scrollX)
 
-            // console.log(el.scrollLeft)
-            // console.log(el.offsetLeft)
-            // console.log(el.pageXOffset)
-            // console.log('this is a nice resize!!')
+            clickedNode.classList.toggle("focused")
         },
-        console(event) {
-            let dupa = event.currentTarget
-            console.log(dupa.offsetLeft)
+        getSibling(clickedNode) {
+            // create an empty array
+            let element
+
+            // first child of the parent node
+            let index = clickedNode.parentNode.firstElementChild;
+
+            if (index != clickedNode) {
+                element = index
+            } else {
+                element = index.nextElementSibling
+            }
+
+            return element;
         },
-        cipa(event) {
-            let cipa = event.currentTarget
-            console.log(cipa.offsetLeft)
+        getAllSiblings(clickedNode) {
+            // create an empty array
+            let siblings = [];
+
+            // if no parent, return empty list
+            if (!clickedNode.parentNode) {
+                return siblings;
+            }
+
+            // first child of the parent node
+            let sibling = clickedNode.parentNode.firstElementChild;
+
+            // loop through next siblings until `null`
+            do {
+                // push sibling to array
+                if (sibling != clickedNode) {
+                    siblings.push(sibling);
+                }
+            } while (sibling = sibling.nextElementSibling);
+
+            return siblings;
+        },
+        scrollToElement(element, parent) {
+            let dist = element.offsetLeft
+            console.log(dist)
+            parent.scrollTo(dist - 240, 0)
+            console.log("scrolled")
         }
     }
 }
@@ -76,27 +100,19 @@ export default {
     white-space: nowrap;
     height: calc(((100% - 20px) / 2));
     overflow: scroll;
-    transition: height 0.4s;
-    transition-timing-function: ease-out;
+    transition: height 0.4s ease-out, opacity 0.2s ease-out;
 }
 
-.rezise_toprow {
-    animation-name: resize;
-    animation-duration: .5s;
-    animation-timing-function: ease-out;
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1000;
 }
 
 .workrow::-webkit-scrollbar {
     display: none;
-}
-
-@keyframes resize {
-    from {
-        height: calc(((100% - 20px) / 2));
-    }
-
-    to {
-        height: calc((200%));
-    }
 }
 </style>

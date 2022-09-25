@@ -3,27 +3,25 @@
     <!-- <Menu :menu="data"></Menu> -->
     <Right></Right>
     <Content :works="works"></Content>
-
+    <!-- <SingleWorkModal></SingleWorkModal> -->
   </div>
 </template>
   
 <script>
 export default {
-  name: 'Home',
+  name: "Home",
   data() {
     return {
       data: [],
       works: [],
       wow: false
-    }
+    };
   },
-  methods: {
-  },
-  computed: {
-  },
+  methods: {},
+  computed: {},
   methods: {
     fetchData(query) {
-      return this.$sanity.fetch(query)
+      return this.$sanity.fetch(query);
     }
     // fetchData(query, number) {
     //   return this.$sanity.fetch(query, {
@@ -32,14 +30,14 @@ export default {
     // }
   },
   async created() {
-    const numerek = this.$route.params.id
-    const query = '*[_type == "work"]{title,size,medium,description,imagesGallery[]{asset->{url}}}'
+    const numerek = this.$route.params.id;
+    const query = "*[_type == \"work\"]{title,size,medium,description,imagesGallery[]{asset->{url}}}";
     // const query = '*[_type == "work" && whatever == "$number"]{title,size,medium,description,imagesGallery[]{asset->{url}}}'
     // const query = `*[_type == "work" && whatever == "${numerek}"]{title,size,medium,description,imagesGallery[]{asset->{url}}}`
     // this.works = await this.fetchData(query, numerek)
-    this.works = await this.fetchData(query)
-    console.log(this.works)
-    console.log(numerek)
+    this.works = await this.fetchData(query);
+    console.log(this.works);
+    console.log(numerek);
   }
 }
 </script>

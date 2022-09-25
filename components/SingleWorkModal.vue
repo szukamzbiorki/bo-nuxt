@@ -1,11 +1,11 @@
 <template>
-    <div className="modal">
-        <!-- <WorkDescription :title="title" :size="size" :medium="medium" :description="description" /> -->
-        <!-- <Workimages :images="imagesGallery"></Workimages> -->
+    <div class="modal">
+        <WorkDescription :title="title" :size="size" :medium="medium" :description="description" />
+        <Workimages :images="imagesGallery"></Workimages>
     </div>
 </template>
 
-<!-- <script>
+<script>
 export default {
     name: "SingleWorkModal",
     props: {
@@ -18,9 +18,6 @@ export default {
     async created() {
         // this.images = await this.fetchImages()
     },
-    methods: {
-
-    },
     computed: {
         // urlOfImg(url) {
         //   return require(url) // the module request
@@ -28,7 +25,7 @@ export default {
     }
 }
 
-</script> -->
+</script>
 
 <style>
 .modal {
