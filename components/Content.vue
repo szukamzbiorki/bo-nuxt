@@ -20,7 +20,7 @@ export default {
     oddPosts() {
       return this.works.filter((post, index) => index % 2 !== 0);
     },
-  }
+  },
 }
 </script>
 

@@ -23,14 +23,7 @@ export default {
       wow: false
     }
   },
-  methods: {
-    // async fetchData() {
-    //   const res = await fetch("http://localhost:5001/alldata")
-    //   const data = await res.json()
-    //   return data
-    // }
 
-  },
   computed: {
     // destinationId() {
     //   return parseInt(this.$route.params.id)
@@ -56,6 +49,7 @@ export default {
     //     number: number
     //   })
     // }
+
     fetchData(query) {
       return this.$sanity.fetch(query)
     }

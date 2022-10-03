@@ -40,7 +40,12 @@ export default {
     },
     animateOnScroll() {
       this.$gsap.from('.biglogo', {
-        y: 400,
+        y: () => {
+          let elH = document.querySelector(".biglogo").offsetHeight
+          let windowH = document.querySelector("body").offsetHeight / 2
+          let va = windowH - elH
+          return va
+        },
         delay: 1,
         duration: 1,
         ease: 'Power1.easeInOut',

@@ -22,7 +22,30 @@ export default {
     size: String,
     medium: String,
     description: String
-  }
+  },
+  // mounted() {
+  //   this.animateOnScroll()
+  // },
+  // methods: {
+  //   animateOnScroll() {
+  //     const boxes = this.$gsap.utils.toArray('.singleWork');
+  //     const rows = this.$gsap.utils.toArray('.workrow');
+  //     boxes.forEach(box => {
+  //       this.$gsap.from(box, {
+  //         y: -10,
+  //         ease: 'Power1.easeInOut',
+  //         duration: 2,
+  //         scrollTrigger: {
+  //           trigger: box,
+  //           markers: true,
+  //           horizontal: true,
+  //           scroller: rows
+  //         }
+  //       })
+  //     })
+
+  //   }
+  // }
 }
 </script>
 

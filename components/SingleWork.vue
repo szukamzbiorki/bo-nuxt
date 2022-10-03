@@ -1,11 +1,13 @@
 <template>
-  <div class="singleWork">
+  <div class="singleWork" id="work">
     <WorkDescription :title="title" :size="size" :medium="medium" :description="description" />
     <Workimages :images="imagesGallery"></Workimages>
   </div>
 </template>
 
 <script>
+import { bindCallback } from 'rxjs';
+
 export default {
   props: {
     title: String,
@@ -14,29 +16,7 @@ export default {
     description: String,
     imagesGallery: []
   },
-  async created() {
-    // this.images = await this.fetchImages()
-  },
-  // mounted() {
-  //   this.animateOnScroll()
-  // },
 
-  // methods: {
-  //   animateOnScroll() {
-  //     this.$gsap.to('.singleWork', {
-  //       background: "black",
-  //       ease: 'Power1.easeInOut',
-  //       scrollTrigger: {
-  //         trigger: '.singleWork'
-  //       }
-  //     })
-  //   }
-  // },
-  computed: {
-    // urlOfImg(url) {
-    //   return require(url) // the module request
-    // }
-  }
 }
 </script>
 
