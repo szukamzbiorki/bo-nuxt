@@ -41,9 +41,11 @@ export default {
             }
 
             close.style.opacity = "100"
+
+
+            let currentScroll = parent.scrollLeft
             this.scrollToElement(clickedNode, parent)
-            console.log("after-scrolled")
-            console.log(parent.scrollX)
+
 
             clickedNode.classList.toggle("focused")
         },
@@ -85,10 +87,29 @@ export default {
             return siblings;
         },
         scrollToElement(element, parent) {
-            let dist = element.offsetLeft
-            console.log(dist)
-            parent.scrollTo(dist - 240, 0)
-            console.log("scrolled")
+            let endPosition = element.offsetLeft - 240;
+
+            let dX = 0.3 * (endPosition - parent.scrollLeft);
+            let nextX = parent.scrollLeft + dX;
+
+            parent.scrollTo(nextX, 0);
+
+            if (Math.abs(parent.scrollLeft - endPosition) >= 0.5) {
+                window.requestAnimationFrame(() => {
+                    this.scrollToElement(element, parent);
+                });
+            } else {
+                // jump to endposition
+                parent.scrollTo(endPosition, 0);
+
+                // store scrollLeft in parent data-scrollleft
+                parent.dataset.scrollleft = parent.scrollLeft;
+
+                let siblings = this.getAllSiblings(element)
+                siblings.forEach(element => {
+                    element.style.display = "none"
+                });
+            }
         }
     }
 }
