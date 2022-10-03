@@ -1,6 +1,6 @@
 <template>
   <div class="aboutBox">
-    <div @click="goToPrev()" class="smalltype kursor">
+    <div @click="goToPrev()" class="back">
       back </div>
     <img class="biglogo" src="../static/assets/logorender.png" alt="">
     <div class="text">
@@ -81,12 +81,13 @@ export default {
   width: 50%;
 }
 
-.kursor {
+.back {
+  font-family: "CMU";
   cursor: pointer;
   margin-bottom: calc(var(--margin1)/2);
 }
 
-.kursor:hover {
+.back:hover {
   text-decoration: underline;
 }
 
