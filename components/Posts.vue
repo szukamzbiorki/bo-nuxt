@@ -23,7 +23,9 @@ export default {
     display: block;
     white-space: nowrap;
     height: calc(((100% - 20px) / 2));
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    /* scroll-snap-type: x proximity; */
 }
 
 .workrow::-webkit-scrollbar {

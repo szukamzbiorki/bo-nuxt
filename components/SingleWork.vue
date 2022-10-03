@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     title: String,
@@ -18,9 +17,21 @@ export default {
   async created() {
     // this.images = await this.fetchImages()
   },
-  methods: {
+  // mounted() {
+  //   this.animateOnScroll()
+  // },
 
-  },
+  // methods: {
+  //   animateOnScroll() {
+  //     this.$gsap.to('.singleWork', {
+  //       background: "black",
+  //       ease: 'Power1.easeInOut',
+  //       scrollTrigger: {
+  //         trigger: '.singleWork'
+  //       }
+  //     })
+  //   }
+  // },
   computed: {
     // urlOfImg(url) {
     //   return require(url) // the module request
@@ -39,5 +50,6 @@ export default {
   display: inline-block;
   /* justify-content: flex-start; */
   margin-right: var(--margin1);
+  /* scroll-snap-align: start; */
 }
 </style>

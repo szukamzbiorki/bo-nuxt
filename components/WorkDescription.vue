@@ -33,6 +33,7 @@ export default {
   /* flex: 0 0 auto;
   min-width: 300px; */
   display: inline-block;
+  height: 50px;
 }
 
 .descriptionBox * {

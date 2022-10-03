@@ -31,7 +31,7 @@ export default {
   display: flex;
   flex-direction: row; */
   display: block;
-  height: calc(100% - 4em);
+  height: calc(100% - 55px);
 }
 
 .workImage {
