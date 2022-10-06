@@ -100,11 +100,12 @@ export default {
 
 .descriptiontext {
   font-family: "CMU";
-  width: 47em;
+  width: 38em;
 }
 
 .quote {
   font-family: "CMUI";
+  width: 38em;
 }
 
 .line {
