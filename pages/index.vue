@@ -17,27 +17,26 @@ export default {
       wow: false
     };
   },
-  methods: {},
-  computed: {},
   methods: {
-    fetchData(query) {
-      return this.$sanity.fetch(query);
-    }
+    //ALTERNATIVE WAY OF QUERY
     // fetchData(query, number) {
     //   return this.$sanity.fetch(query, {
     //     number: number
     //   })
     // }
+
+    fetchData(query) {
+      return this.$sanity.fetch(query);
+    }
   },
   async created() {
-    const numerek = this.$route.params.id;
-    const query = "*[_type == \"work\"]{title,size,medium,description,imagesGallery[]{asset->{url}}}";
-    // const query = '*[_type == "work" && whatever == "$number"]{title,size,medium,description,imagesGallery[]{asset->{url}}}'
+    //ALTERNATIVE WAY OF QUERY
+    // const numerek = this.$route.params.id;
     // const query = `*[_type == "work" && whatever == "${numerek}"]{title,size,medium,description,imagesGallery[]{asset->{url}}}`
     // this.works = await this.fetchData(query, numerek)
+
+    const query = "*[_type == \"work\"]{title,size,medium,description,imagesGallery[]{asset->{url}}}";
     this.works = await this.fetchData(query);
-    console.log(this.works);
-    console.log(numerek);
   }
 }
 </script>
