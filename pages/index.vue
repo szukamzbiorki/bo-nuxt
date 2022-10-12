@@ -2,7 +2,6 @@
   <div class="wrapper">
     <Logo></Logo>
     <Content :works="works"></Content>
-    <InfoButton></InfoButton>
     <InfoBox></InfoBox>
   </div>
 </template>
@@ -44,6 +43,11 @@ export default {
 <style>
 :root {
   --space: 15px;
+}
+
+body * {
+  font-family: "Union" !important;
+  font-size: 13px !important;
 }
 
 .wrapper {

@@ -9,6 +9,16 @@
     font-family: 'VAG';
     src: url("../VAG Rounded Next SemiBold.ttf") format('truetype');
   }
+
+  @font-face {
+    font-family: 'Monument';
+    src: url("../Monument.otf") format('opentype');
+  }
+  
+  @font-face {
+    font-family: 'Union';
+    src: url("../Union-Regular.otf") format('opentype');
+  }
   
   @font-face {
     font-family: 'CMU';

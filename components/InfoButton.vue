@@ -9,20 +9,19 @@
 export default {
     name: "InfoButton",
     methods: {
-        hoverinfo: () => {
+        hoverinfo() {
             var infobox = document.querySelector(".infobox");
-            infobox.style.opacity = "100";
+            // infobox.style.opacity = "100";
         },
-        hoverinfoleave: () => {
+        hoverinfoleave() {
             var infobox = document.querySelector(".infobox");
-            infobox.style.opacity = "0";
+            // infobox.style.opacity = "0";
         },
-        infoclick: () => {
-            this.$gsap.to(".infobox", {
-                x: -500,
-                ease: 'Power1.easeInOut'
-            })
-
+        infoclick() {
+            var infobox = document.querySelector(".infobox");
+            var infobutton = document.querySelector(".infobutton");
+            infobox.classList.toggle("active");
+            infobutton.classList.toggle("moved");
         }
     }
 
@@ -32,10 +31,11 @@ export default {
 
 <style>
 .infobutton {
-    position: absolute;
-    top: var(--space);
-    right: var(--space);
+    display: inline-block;
+    padding: var(--space);
     cursor: pointer;
     z-index: 30;
+    opacity: 100 !important;
+    background-color: #ffffff;
 }
 </style>

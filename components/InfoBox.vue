@@ -1,27 +1,24 @@
 <template>
   <div class="infobox">
+    <InfoButton></InfoButton>
     <div class="infocontent">
       <img class="biglogo" src="../static/assets/logorender.png" alt="">
       <div class="text">
-        <div class="title">Bo Deurloo (b. 1999, The Hague)</div>
+        <div class="title">{{data.name}}</div>
         <div class="descriptiontext">
-          As an artist born in the time of the internet and mass media, Bo derives his inspiration from the two spaces
-          in
-          our contemporary times exist in. The offline and the online. As a teenager, he spent most of his time on the
-          online side of living,
-          giving himself the freedom to explore interests and create friendships from all over the world on the web,
-          but
-          with the loss of the real world. With his interest and work with and in art, he realizes the impact of the
-          online world on the real
-          world around us. The aim of creating an artwork is to create a visual trigger. Something in your eyesight
-          that
-          makes you shift from rationality to reality. This shift is what I try to embody with my work, in any way
-          possible. This effect is
-          closely related to Koan zen riddles. The form of the works often is mystic, absurd, open narrative, and
-          abstract. Assembling parts from the offline and the online.
+          {{data.bio}}
         </div>
         <div class="quote">
-          ‘A humble attempt in trying to understand myself and the world around me through art’
+          {{data.quote}}
+        </div>
+        <div class="quote">
+          <div v-for="slot in data.contactinfo" v-bind:key="slot.id">{{slot}}</div>
+        </div>
+        <div class="upcomingexhibitions">
+          UPCOMING EXHIBITIONS
+          <div v-for="upexpo in data.upexpos" v-bind:key="upexpo.id">
+            {{upexpo.year}} {{upexpo.place}} {{upexpo.citycountry}}
+          </div>
         </div>
         <!-- <div class="line"></div> -->
       </div>
@@ -34,16 +31,31 @@
 <script>
 export default {
   name: 'InfoBox',
+  data() {
+    return {
+      data: []
+    };
+  },
   methods: {
-    goToPrev() {
-
-      // ...
-      // Do other logic like logging, etc.
-      // ...
-
-      // Tell router to go back one
-      this.$router.go(-1);
-    },
+    //ALTERNATIVE WAY OF QUERY
+    // fetchData(query, number) {
+    //   return this.$sanity.fetch(query, {
+    //     number: number
+    //   })
+    // }
+    fetchData(query) {
+      return this.$sanity.fetch(query);
+    }
+  },
+  async created() {
+    //ALTERNATIVE WAY OF QUERY
+    // const numerek = this.$route.params.id;
+    // const query = `*[_type == "work" && whatever == "${numerek}"]{title,size,medium,description,imagesGallery[]{asset->{url}}}`
+    // this.works = await this.fetchData(query, numerek)
+    const query = "*[_type == \"info\"]{name,bio,quote,contactinfo[],upexpos[],expos[],education[]}";
+    var infos = await this.fetchData(query);
+    this.data = infos[0];
+    console.log(this.data);
   }
 }
 </script>
@@ -51,31 +63,31 @@ export default {
 <style>
 .infobox {
   position: absolute;
-  opacity: 0;
-  left: calc(100vw - (2 * var(--space) + 40px));
-  width: 20vw;
+  opacity: 100;
+  left: calc(100vw - (2 * var(--space) + 30px));
+  width: 65vw;
   height: 100vh;
   overflow: hidden;
-  background-color: white;
+  /* background-color: #ffffff; */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
-  align-items: stretch;
-  transition: opacity 1s ease-in-out;
+  align-items: flex-start;
+  transition: 1s ease-in;
   /* background-color: grey; */
 }
 
+.active {
+  left: 35vw !important;
+  opacity: 100 !important;
+  /* background-color: #ffffff !important; */
+}
+
 .infocontent {
-  opacity: 0;
-}
-
-.kursor {
-  cursor: pointer;
-  margin-bottom: calc(var(--margin1)/2);
-}
-
-.kursor:hover {
-  text-decoration: underline;
+  display: inline-block;
+  padding-top: var(--space);
+  background-color: #ffffff;
+  padding: var(--space);
 }
 
 .biglogo {
