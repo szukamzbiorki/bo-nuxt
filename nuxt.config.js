@@ -39,7 +39,12 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-
+  gsap: {
+    extraPlugins: {
+      scrollTo: true,
+      scrollTrigger: true
+    }
+  },
   pageTransition: {
     name: 'page',
     mode: 'out-in',

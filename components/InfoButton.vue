@@ -17,10 +17,9 @@ export default {
             infobox.style.opacity = "0";
         },
         infoclick: () => {
-            const gsap = this.$gsap
             var infobox = document.querySelector(".infobox");
             infobox.style.opacity = "1";
-            gsap.to(".infobox", {
+            this.$gsap.to(".infobox", {
                 x: -500,
                 ease: 'Power1.easeInOut'
             })
