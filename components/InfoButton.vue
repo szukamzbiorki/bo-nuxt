@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 export default {
     name: "InfoButton",
     methods: {
@@ -17,8 +18,6 @@ export default {
             infobox.style.opacity = "0";
         },
         infoclick: () => {
-            var infobox = document.querySelector(".infobox");
-            infobox.style.opacity = "1";
             this.$gsap.to(".infobox", {
                 x: -500,
                 ease: 'Power1.easeInOut'
