@@ -25,20 +25,20 @@ export default {
 
 <style>
 .gallery {
-  margin-top: 4px;
   /* background-color: grey; */
   /* flex: 1 0 auto;
   display: flex;
   flex-direction: row; */
   display: block;
-  height: calc(100% - 4em);
+  width: calc(60vw - 40px);
+  max-height: 70vh;
 }
 
 .workImage {
-  height: 100%;
-  width: auto;
+  max-width: 100%;
   margin-right: calc(var(--margin1) / 2);
   cursor: pointer;
+  max-height: 70vh;
 }
 
 .workImage:last-child {

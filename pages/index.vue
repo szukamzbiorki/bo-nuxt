@@ -1,13 +1,14 @@
 <template>
   <div class="wrapper">
-    <!-- <Menu :menu="data"></Menu> -->
-    <Right></Right>
+    <Logo></Logo>
     <Content :works="works"></Content>
-    <!-- <SingleWorkModal></SingleWorkModal> -->
+    <InfoButton></InfoButton>
+    <InfoBox></InfoBox>
   </div>
 </template>
   
 <script>
+import InfoBox from "../components/InfoBox.vue";
 export default {
   name: "Home",
   data() {
@@ -24,7 +25,6 @@ export default {
     //     number: number
     //   })
     // }
-
     fetchData(query) {
       return this.$sanity.fetch(query);
     }
@@ -34,21 +34,25 @@ export default {
     // const numerek = this.$route.params.id;
     // const query = `*[_type == "work" && whatever == "${numerek}"]{title,size,medium,description,imagesGallery[]{asset->{url}}}`
     // this.works = await this.fetchData(query, numerek)
-
     const query = "*[_type == \"work\"]{title,size,medium,description,imagesGallery[]{asset->{url}}}";
     this.works = await this.fetchData(query);
-  }
+  },
+  components: { InfoBox }
 }
 </script>
   
 <style>
+:root {
+  --space: 15px;
+}
+
 .wrapper {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 240px 1fr 200px;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
+  background-color: #ededed;
 }
 </style>
   

@@ -68,23 +68,11 @@ a {
   text-align: right;
 }
 
-.info {
-  background-color: lightgreen;
-}
-
-.bio {
-  background-color: lightgrey;
-}
-
-.contact {
-  background-color: pink;
-}
-
-.bologo {
+/* .bologo {
   width: 100%;
   height: auto;
   margin-bottom: 10px;
-}
+} */
 
 .menubox {
   width: 100%;

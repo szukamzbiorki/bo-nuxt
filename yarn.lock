@@ -5723,6 +5723,11 @@
   "resolved" "https://registry.npmjs.org/groq/-/groq-2.29.3.tgz"
   "version" "2.29.3"
 
+"gsap@^3.11.0":
+  "integrity" "sha512-xc/iIJy+LWiMbRa4IdMtdnnKa/7PXEK6NNzV71gdOYUVeTZN7UWnLU0fB7Hi1iwiz4ZZoYkBZPPYGg+2+zzFHA=="
+  "resolved" "https://registry.npmjs.org/gsap/-/gsap-3.11.3.tgz"
+  "version" "3.11.3"
+
 "gunzip-maybe@^1.4.1":
   "integrity" "sha512-4haO1M4mLO91PW57BMsDFf75UmwoRX0GkdD+Faw+Lr+r/OZrOCS0pIBwOL1xCKQqnQzbNFGgK2V2CpBUPeFNTw=="
   "resolved" "https://registry.npmjs.org/gunzip-maybe/-/gunzip-maybe-1.4.2.tgz"
@@ -7809,6 +7814,13 @@
   "integrity" "sha512-4jbtZXNAsfZbAHiiqjLPBiCl16dES1zI4Hpzzxw61Tk+loF+sBDBKx1ICKKKwIqQ7M0mFn1TmkN7euSncWgHiQ=="
   "resolved" "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz"
   "version" "1.0.1"
+
+"nuxt-gsap-module@^1.7.2":
+  "integrity" "sha512-pVHsHv8Ra9Fn7CcuaWoG5MgigYwonNJipI/NGX8X5ta2IBitNWOYTgB+vHt1zYHUxo6lFaoptw1QrABm4hknQQ=="
+  "resolved" "https://registry.npmjs.org/nuxt-gsap-module/-/nuxt-gsap-module-1.7.2.tgz"
+  "version" "1.7.2"
+  dependencies:
+    "gsap" "^3.11.0"
 
 "nuxt@^2.15.8":
   "integrity" "sha512-ceK3qLg/Baj7J8mK9bIxqw9AavrF+LXqwYEreBdY/a4Sj8YV4mIvhqea/6E7VTCNNGvKT2sJ/TTJjtfQ597lTA=="

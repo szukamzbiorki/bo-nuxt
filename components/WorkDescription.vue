@@ -1,17 +1,14 @@
 <template>
   <div class="descriptionBox">
-    <p class="worktitle bigtype">
+    <span class="worktitle bigtype">
       {{title}}
-    </p>
-    <p class="size smalltype">
+    </span>
+    <span class="size smalltype">
       {{size}}
-    </p>
-    <p class="medium smalltype">
+    </span>
+    <span class="medium smalltype">
       {{medium}}
-    </p>
-    <p class="description smalltype">
-      {{description}}
-    </p>
+    </span>
   </div>
 </template>
 
@@ -28,8 +25,7 @@ export default {
 
 <style>
 .descriptionBox {
-  position: sticky;
-  left: 0;
+  margin-top: 5px;
   /* flex: 0 0 auto;
   min-width: 300px; */
   display: inline-block;
