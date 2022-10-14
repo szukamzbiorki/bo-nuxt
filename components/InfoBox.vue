@@ -1,30 +1,30 @@
 <template>
-  <div class="infobox">
-    <InfoButton></InfoButton>
-    <div class="infocontent">
-      <img class="biglogo" src="../static/assets/logorender.png" alt="">
-      <div class="text">
-        <div class="title">{{data.name}}</div>
-        <div class="descriptiontext">
-          {{data.bio}}
-        </div>
-        <div class="quote">
-          {{data.quote}}
-        </div>
-        <div class="quote">
-          <div v-for="slot in data.contactinfo" v-bind:key="slot.id">{{slot}}</div>
-        </div>
-        <div class="upcomingexhibitions">
-          UPCOMING EXHIBITIONS
-          <div v-for="upexpo in data.upexpos" v-bind:key="upexpo.id">
-            {{upexpo.year}} {{upexpo.place}} {{upexpo.citycountry}}
-          </div>
-        </div>
-        <!-- <div class="line"></div> -->
+<div class="infobox">
+  <InfoButton></InfoButton>
+  <div class="infocontent">
+    <img class="biglogo" src="../static/assets/logorender.png" alt="">
+    <div class="text">
+      <div class="title">{{data.name}}</div>
+      <div class="descriptiontext">
+        {{data.bio}}
       </div>
+      <div class="quote">
+        {{data.quote}}
+      </div>
+      <div class="quote">
+        <div v-for="slot in data.contactinfo" v-bind:key="slot.id">{{slot}}</div>
+      </div>
+      <div class="upcomingexhibitions">
+        UPCOMING EXHIBITIONS
+        <div v-for="upexpo in data.upexpos" v-bind:key="upexpo.id">
+          {{upexpo.year}} {{upexpo.place}} {{upexpo.citycountry}}
+        </div>
+      </div>
+      <!-- <div class="line"></div> -->
     </div>
-
   </div>
+
+</div>
 </template>
 
 
@@ -55,7 +55,6 @@ export default {
     const query = "*[_type == \"info\"]{name,bio,quote,contactinfo[],upexpos[],expos[],education[]}";
     var infos = await this.fetchData(query);
     this.data = infos[0];
-    console.log(this.data);
   }
 }
 </script>

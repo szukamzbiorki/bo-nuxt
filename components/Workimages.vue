@@ -1,5 +1,8 @@
 <template>
   <div class="gallery">
+    <swiper :slides-per-view="3" :space-between="50" @swiper="onSwiper" @slideChange="onSlideChange">
+      <swiper-slide>Slide 1</swiper-slide>
+    </swiper>
     <img :key="image.id" v-for="image in images" :src="image.asset.url" class="workImage" />
   </div>
 </template>
