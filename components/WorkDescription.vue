@@ -1,5 +1,8 @@
 <template>
   <div class="descriptionBox">
+    <span :class="type">
+      {{type}}
+    </span>
     <span class="worktitle bigtype">
       {{title}}
     </span>
@@ -15,6 +18,7 @@
 <script>
 export default {
   props: {
+    type: String,
     title: String,
     size: String,
     medium: String,
@@ -42,5 +46,21 @@ export default {
 
 .bigtype {
   font-size: 17px;
+}
+
+.work {
+  padding: 2px 2px 0 2px;
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  background-color: blue;
+}
+
+.exhibition {
+  padding: 2px 2px 0 2px;
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  background-color: red;
 }
 </style>

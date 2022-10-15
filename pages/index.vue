@@ -33,8 +33,9 @@ export default {
     // const numerek = this.$route.params.id;
     // const query = `*[_type == "work" && whatever == "${numerek}"]{title,size,medium,description,imagesGallery[]{asset->{url}}}`
     // this.works = await this.fetchData(query, numerek)
-    const query = "*[_type == \"work\"]{title,size,medium,description,imagesGallery[]{asset->{url}}}";
+    const query = "*[_type == \"work\"]{type,title,size,medium,description,imagesGallery[]{asset->{url}}}| order(_createdAt desc)";
     this.works = await this.fetchData(query);
+    console.log(this.works)
   },
   components: { InfoBox }
 }
@@ -42,11 +43,11 @@ export default {
   
 <style>
 :root {
-  --space: 15px;
+  --space: 1em;
 }
 
 body * {
-  font-family: "Union" !important;
+  font-family: "DiGrotesk" !important;
   font-size: 13px !important;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="singleWork">
     <Workimages :images="imagesGallery"></Workimages>
-    <WorkDescription :title="title" :size="size" :medium="medium" :description="description" />
+    <WorkDescription :type="type" :title="title" :size="size" :medium="medium" />
   </div>
 </template>
 
@@ -9,10 +9,10 @@
 
 export default {
   props: {
+    type: String,
     title: String,
     size: String,
     medium: String,
-    description: String,
     imagesGallery: []
   }
 }
@@ -22,7 +22,7 @@ export default {
 <style>
 .singleWork {
   width: 100%;
-  margin-bottom: var(--space);
+  margin-bottom: calc(var(--space) / 2);
   /* background-color: white; */
 }
 </style>

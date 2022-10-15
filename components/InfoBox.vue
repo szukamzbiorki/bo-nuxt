@@ -1,30 +1,63 @@
 <template>
-<div class="infobox">
-  <InfoButton></InfoButton>
-  <div class="infocontent">
-    <img class="biglogo" src="../static/assets/logorender.png" alt="">
-    <div class="text">
-      <div class="title">{{data.name}}</div>
-      <div class="descriptiontext">
-        {{data.bio}}
-      </div>
-      <div class="quote">
-        {{data.quote}}
-      </div>
-      <div class="quote">
-        <div v-for="slot in data.contactinfo" v-bind:key="slot.id">{{slot}}</div>
-      </div>
-      <div class="upcomingexhibitions">
-        UPCOMING EXHIBITIONS
-        <div v-for="upexpo in data.upexpos" v-bind:key="upexpo.id">
-          {{upexpo.year}} {{upexpo.place}} {{upexpo.citycountry}}
+  <div class="infobox">
+    <InfoButton></InfoButton>
+    <div class="infocontent">
+      <img class="biglogo" src="../static/assets/logorender.png" alt="">
+      <div class="infocontainer">
+        <!-- INTRO SECTION -->
+        <div class="intro">
+          <div class="title">{{data.name}}</div>
+          <div class="descriptiontext">
+            {{data.bio}}
+          </div>
+          <div class="quote">
+            {{data.quote}}
+          </div>
+        </div>
+        <!-- CONTACT SECTION -->
+        <div class="contact">
+          <div v-for="slot in data.contactinfo" v-bind:key="slot.id">{{slot}}</div>
+        </div>
+        <!-- EXHIBITIONS SECTION -->
+        <div class="exhibitions">
+          <!-- UPCOMING EXHIBITIONS SECTION -->
+          <div class="upcomingexhibitions marbot">
+            <div class="exhibitionstitle">UPCOMING EXHIBITIONS</div>
+            <div class="expoinstances">
+              <div class="expogrid marbot" v-for="expo in data.upexpos" v-bind:key="expo.id">
+                <div>{{expo.year}}</div>
+                <div>{{expo.place}}</div>
+                <div>{{expo.citycountry}}</div>
+              </div>
+            </div>
+          </div>
+          <!-- EXHIBITIONS SECTION -->
+          <div class="currentexhibitions marbot">
+            <div class="exhibitionstitle">EXHIBITIONS</div>
+            <div class="expoinstances">
+              <div class="expogrid marbot" v-for="expo in data.expos" v-bind:key="expo.id">
+                <div>{{expo.year}}</div>
+                <div>{{expo.place}}</div>
+                <div>{{expo.citycountry}}</div>
+              </div>
+            </div>
+          </div>
+          <!-- EDUCATION SECTION -->
+          <div class="currentexhibitions marbot">
+            <div class="exhibitionstitle">EDUCATION</div>
+            <div class="expoinstances">
+              <div class="expogrid marbot" v-for="expo in data.education" v-bind:key="expo.id">
+                <div>{{expo.year}}</div>
+                <div>{{expo.place}}</div>
+                <div>{{expo.citycountry}}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- <div class="line"></div> -->
     </div>
-  </div>
 
-</div>
+  </div>
 </template>
 
 
@@ -52,7 +85,7 @@ export default {
     // const numerek = this.$route.params.id;
     // const query = `*[_type == "work" && whatever == "${numerek}"]{title,size,medium,description,imagesGallery[]{asset->{url}}}`
     // this.works = await this.fetchData(query, numerek)
-    const query = "*[_type == \"info\"]{name,bio,quote,contactinfo[],upexpos[],expos[],education[]}";
+    const query = "*[_type == \"info\"]{name,bio,quote,contactinfo[],expos[],upexpos[],education[]}";
     var infos = await this.fetchData(query);
     this.data = infos[0];
   }
@@ -60,6 +93,10 @@ export default {
 </script>
 
 <style>
+.marbot {
+  margin-bottom: .5em;
+}
+
 .infobox {
   position: absolute;
   opacity: 100;
@@ -84,7 +121,6 @@ export default {
 
 .infocontent {
   display: inline-block;
-  padding-top: var(--space);
   background-color: #ffffff;
   padding: var(--space);
 }
@@ -93,7 +129,41 @@ export default {
   width: 100%;
   display: inline-block;
   vertical-align: top;
-  margin-bottom: var(--margin1);
+  margin-bottom: var(--space);
+}
+
+.infocontainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+  grid-gap: calc(var(--space) / 2);
+}
+
+.intro {
+  grid-column: 1 / 5;
+}
+
+.intro>div:not(:last-child) {
+  margin-bottom: .5em;
+}
+
+.contact {
+  grid-column: 5 / 7;
+}
+
+.exhibitions {
+  grid-column: 1 / 7;
+}
+
+.exhibitionstitle {
+  margin-bottom: .5em;
+}
+
+.expogrid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  grid-template-rows: auto;
+  grid-gap: calc(var(--space) / 2);
 }
 
 .descriptiontext {
@@ -108,11 +178,5 @@ export default {
   border-bottom: solid 1.5px black;
   height: var(--margin1);
   width: 100% !important;
-}
-
-
-.text * {
-  margin-bottom: .5em;
-  width: 50%;
 }
 </style>
