@@ -1,58 +1,73 @@
 <template>
-  <div class="gallery">
-    <!-- <swiper :slides-per-view="3" :space-between="50" @swiper="onSwiper" @slideChange="onSlideChange">
+  <!-- <div class="gallery">
+    <swiper :slides-per-view="3" :space-between="50" @swiper="onSwiper" @slideChange="onSlideChange">
       <swiper-slide :key="image.id" v-for="image in images">
         <img :src="image.asset.url" class="workImage" />
       </swiper-slide>
-    </swiper> -->
-    <img v-for="image in images" :key="image.key" :src="image.asset.url" class="workImage" />
+    </swiper> 
+  </div> -->
+  <div class="gallery">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" :key="image.id" v-for="image in images">
+          <img :src="image.asset.url" class="workImage" />
+        </div>
+      </div>
+    </div>
+    <!-- If pagination is needed -->
+    <!-- <div class="swiper-pagination"></div> -->
+    <!-- If navigation buttons are needed -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
   </div>
+  <!-- <img v-for="image in images" :key="image.key" :src="image.asset.url" class="workImage" /> -->
+
 </template>
 
 <script>
-// import Swiper, { Navigation, Pagination } from 'swiper';
-// // import Swiper and modules styles
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-
-// init Swiper:
-
+import { Swiper, Navigation, Pagination, EffectCards, Autoplay, EffectCreative } from 'swiper';
+import 'swiper/swiper-bundle.min.css'
 
 export default {
   props: {
     images: []
   },
-  async created() {
-
-    // this.images = await this.fetchImages()
-  },
-  methods: {
-
-  },
   mounted() {
-    // const swiper = new Swiper('.swiper', {
-    //   // configure Swiper to use modules
-    //   modules: [Navigation, Pagination]
-    // });
-  },
-  computed: {
-    // urlOfImg(url) {
-    //   return require(url) // the module request
-    // }
-  },
-  setup() {
-    const onSwiper = (swiper) => {
-      console.log(swiper);
-    };
-    const onSlideChange = () => {
-      console.log('slide change');
-    };
-    return {
-      onSwiper,
-      onSlideChange,
-    };
-  },
+    const swiper = new Swiper('.swiper', {
+      // direction: vertical,
+      loop: true,
+      effect: 'Creative',
+      creativeEffect: {
+        prev: {
+          translate: ['0%', 0, 0],
+        },
+        next: {
+          translate: ['100%', 0, 0],
+        },
+      },
+      // // remove unused modules if needed
+      // modules: [Navigation, Pagination, EffectCards, Autoplay],
+      // // Pagination if needed
+      // pagination: {
+      //   el: '.swiper-pagination',
+      //   type: 'bullets',
+      //   clickable: true,
+      // },
+      // Autoplay if needed
+      // autoplay: {
+      //   delay: 1500,
+      // },
+      // Navigation arrows if needed
+      // navigation: {
+      //   nextEl: '.swiper-button-next',
+      //   prevEl: '.swiper-button-prev',
+      // },
+    })
+    // you can use different options later
+    // swiper.on('activeIndexChange', (swiper) => {
+    //   // console.log(swiper)
+    // })
+  }
 }
 </script>
 
@@ -76,5 +91,9 @@ export default {
 
 .workImage:last-child {
   margin-right: 0;
+}
+
+.swiper-slide-shadow {
+  display: none !important;
 }
 </style>

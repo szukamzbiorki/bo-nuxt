@@ -5,8 +5,9 @@
       <img class="biglogo" src="../static/assets/logorender.png" alt="">
       <div class="infocontainer">
         <!-- INTRO SECTION -->
+
+        <div class="title">{{data.name}}</div>
         <div class="intro">
-          <div class="title">{{data.name}}</div>
           <div class="descriptiontext">
             {{data.bio}}
           </div>
@@ -139,8 +140,13 @@ export default {
   grid-gap: calc(var(--space) / 2);
 }
 
+.title {
+  grid-column: 1 / 7;
+}
+
 .intro {
   grid-column: 1 / 5;
+  max-width: 45em;
 }
 
 .intro>div:not(:last-child) {
