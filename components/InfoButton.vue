@@ -32,7 +32,7 @@ export default {
 <style>
 .infobutton {
     display: inline-block;
-    padding: var(--space);
+    padding: calc(var(--space) - 1px);
     cursor: pointer;
     z-index: 30;
     opacity: 100 !important;

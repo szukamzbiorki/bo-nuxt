@@ -99,6 +99,7 @@ export default {
 }
 
 .infobox {
+  z-index: 500;
   position: absolute;
   opacity: 100;
   left: calc(100vw - (2 * var(--space) + 30px));
@@ -184,5 +185,32 @@ export default {
   border-bottom: solid 1.5px black;
   height: var(--margin1);
   width: 100% !important;
+}
+
+@media screen and (max-width: 820px) {
+  .infobox {
+    width: 100vw !important;
+  }
+
+  .active {
+    left: 0 !important;
+  }
+
+  .infocontent {
+    max-height: calc(100vh - 2*var(--space)) !important;
+    overflow: scroll !important;
+  }
+
+  .infocontent::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .intro {
+    grid-column: 1 / 7;
+  }
+
+  .contact {
+    grid-column: 1 / 7;
+  }
 }
 </style>

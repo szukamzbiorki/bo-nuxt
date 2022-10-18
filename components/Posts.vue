@@ -29,4 +29,10 @@ export default {
 .workrow::-webkit-scrollbar {
     display: none;
 }
+
+@media screen and (max-width: 820px) {
+    .workcolumn {
+        width: calc(100vw - 2*var(--space)) !important;
+    }
+}
 </style>

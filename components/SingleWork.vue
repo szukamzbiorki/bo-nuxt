@@ -42,7 +42,7 @@
 import { Swiper, Navigation, Pagination, EffectCards, Autoplay, EffectCreative } from 'swiper';
 import 'swiper/swiper-bundle.min.css'
 
-Swiper.use([Navigation, EffectCreative]);
+Swiper.use([Navigation, EffectCreative, EffectCards]);
 
 export default {
   props: {
@@ -56,15 +56,7 @@ export default {
     const swiper = new Swiper('.swiper', {
       // direction: vertical,
       loop: true,
-      effect: 'Creative',
-      creativeEffect: {
-        prev: {
-          translate: ['0%', 0, 0],
-        },
-        next: {
-          translate: ['100%', 0, 0],
-        },
-      },
+      effect: 'cards',
       // // remove unused modules if needed
       // modules: [Navigation, Pagination, EffectCards, Autoplay],
       // // Pagination if needed
@@ -164,5 +156,22 @@ export default {
   color: white;
   text-transform: uppercase;
   background-color: red;
+}
+
+@media screen and (max-width: 820px) {
+  .gallery {
+    width: calc(100vw - 2*var(--space)) !important;
+    max-height: 70vh;
+  }
+
+  .descriptionBox {
+    width: calc(100vw - 2*var(--space));
+    max-width: calc(100vw - 2*var(--space));
+  }
+
+  .descriptionBox * {
+    overflow-wrap: break-word;
+    display: inline-block;
+  }
 }
 </style>

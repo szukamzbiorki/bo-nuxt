@@ -34,4 +34,12 @@ export default {
 .workcontainer::-webkit-scrollbar {
   display: none;
 }
+
+@media screen and (max-width: 820px) {
+  .workcontainer {
+    width: 100vw !important;
+    max-width: 100vw;
+    margin: 0 var(--space) 0 var(--space);
+  }
+}
 </style>
