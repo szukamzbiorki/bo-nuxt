@@ -20,8 +20,8 @@
     <!-- <Workimages :images="imagesGallery"></Workimages>
     <WorkDescription :type="type" :title="title" :size="size" :medium="medium" /> -->
     <div class="descriptionBox">
-      <div class="slidePrev-btn navbut">&#2190;</div>
-      <div class="slideNext-btn navbut">&#2192;</div>
+      <div class="slidePrev-btn navbut">&#8592;</div>
+      <div class="slideNext-btn navbut">&#8594;</div>
       <span :class="type">
         {{type}}
       </span>
@@ -88,7 +88,6 @@ export default {
 .navbut {
   font-family: "DiGrotesk";
   display: inline-block;
-  background-color: aquamarine;
 }
 
 .singleWork {
