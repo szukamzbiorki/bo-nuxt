@@ -1,5 +1,5 @@
 <template>
-  <div class="singleWork">
+  <div class="singleWork swiper__container">
 
     <div class="gallery">
       <div class="swiper mySwiper">
@@ -20,8 +20,8 @@
     <!-- <Workimages :images="imagesGallery"></Workimages>
     <WorkDescription :type="type" :title="title" :size="size" :medium="medium" /> -->
     <div class="descriptionBox">
-      <div class="slidePrev-btn navbut">&#8592;</div>
-      <div class="slideNext-btn navbut">&#8594;</div>
+      <div v-if="imagesGallery.length > 1" class="slidePrev-btn navbut">&#8592;</div>
+      <div v-if="imagesGallery.length > 1" class="slideNext-btn navbut">&#8594;</div>
       <span :class="type">
         {{type}}
       </span>
@@ -53,28 +53,51 @@ export default {
     imagesGallery: [],
   },
   mounted() {
-    const swiper = new Swiper('.swiper', {
-      // direction: vertical,
-      loop: true,
-      effect: 'cards',
-      // // remove unused modules if needed
-      // modules: [Navigation, Pagination, EffectCards, Autoplay],
-      // // Pagination if needed
-      // pagination: {
-      //   el: '.swiper-pagination',
-      //   type: 'bullets',
-      //   clickable: true,
-      // },
-      // Autoplay if needed
-      // autoplay: {
-      //   delay: 1500,
-      // },
-      // Navigation arrows if needed
-      navigation: {
-        nextEl: '.slideNext-btn',
-        prevEl: '.slidePrev-btn',
-      },
+    document.querySelectorAll('.swiper').forEach(swiper => {
+      const swiperEl = new Swiper(swiper, {
+        // direction: vertical,
+        loop: true,
+        effect: 'creative',
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            translate: [0, 0, -400],
+          },
+          next: {
+            translate: ["100%", 0, 0],
+          },
+        },
+        // // remove unused modules if needed
+        // modules: [Navigation, Pagination, EffectCards, Autoplay],
+        // // Pagination if needed
+        // pagination: {
+        //   el: '.swiper-pagination',
+        //   type: 'bullets',
+        //   clickable: true,
+        // },
+        // Autoplay if needed
+        // autoplay: {
+        //   delay: 1500,
+        // },
+        // Navigation arrows if needed
+      })
+
+      const prevButton = swiper.closest('.swiper__container').querySelector('.slidePrev-btn');
+      const nextButton = swiper.closest('.swiper__container').querySelector('.slideNext-btn');
+
+      if (prevButton) {
+        prevButton.addEventListener('click', () => {
+          swiperEl.slidePrev();
+        })
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener('click', () => {
+          swiperEl.slideNext();
+        })
+      }
     })
+
     // you can use different options later
     // swiper.on('activeIndexChange', (swiper) => {
     //   // console.log(swiper)
