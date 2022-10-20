@@ -69,7 +69,7 @@ export default {
           },
           next: {
             translate: [0, "100%", 0],
-            opacity: 0
+            opacity: 1
           },
         }
       })
