@@ -65,6 +65,7 @@ export default {
           prev: {
             translate: [0, 0, 0],
             rotate: [0, 0, 0],
+            scale: 0.7,
             opacity: 0
           },
           next: {
