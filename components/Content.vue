@@ -24,6 +24,7 @@ export default {
 
 <style scope>
 .workcontainer {
+  overflow-x: visible;
   height: auto;
   width: 60vw;
   max-width: 60vw;

@@ -59,7 +59,7 @@ export default {
     document.querySelectorAll('.swiper').forEach(swiper => {
       const swiperEl = new Swiper(swiper, {
         // direction: vertical,
-        // loop: true,
+        loop: true,
         slidesPerView: 1,
         centeredSlides: true,
         effect: 'creative',
@@ -120,8 +120,12 @@ export default {
 
 
 <style>
-.gallery * {
-  overflow: show;
+.swiper-wrapper {
+  overflow: visible;
+}
+
+.gallery {
+  overflow: visible;
 }
 
 .navbut {
@@ -131,6 +135,7 @@ export default {
 }
 
 .singleWork {
+  overflow: visible;
   width: 100%;
   margin-bottom: calc(var(--space) / 2);
   /* background-color: white; */

@@ -19,10 +19,11 @@ export default {
 
 <style>
 .workcolumn {
+    /* overflow: visible; */
     display: block;
     white-space: nowrap;
     width: calc(60vw - 2*var(--space));
-    overflow-x: hidden;
+    overflow-x: visible;
     /* transition: height 0.4s ease-out, opacity 0.2s ease-out; */
 }
 
