@@ -60,14 +60,17 @@ export default {
       const swiperEl = new Swiper(swiper, {
         // direction: vertical,
         // loop: true,
+        slidesPerView: 1,
+        centeredSlides: true,
         effect: 'creative',
         creativeEffect: {
           prev: {
-            shadow: true,
-            translate: [0, 0, -400],
+            // shadow: true,
+            translate: [-50, 0, 0],
+            rotate: [0, 0, -5],
           },
           next: {
-            translate: [0, "100%", 0],
+            translate: ["101%", 0, 0],
           },
         },
         // // remove unused modules if needed
@@ -85,6 +88,7 @@ export default {
         // Navigation arrows if needed
       })
 
+
       const prevButton = swiper.closest('.swiper__container').querySelector('.slidePrev-btn');
       const nextButton = swiper.closest('.swiper__container').querySelector('.slideNext-btn');
 
@@ -99,6 +103,11 @@ export default {
           swiperEl.slideNext();
         })
       }
+
+
+      // if (swiperEl.isBeginning) {
+      //   swiperEl.navigation.update()
+      // }
     })
 
     // you can use different options later
@@ -111,6 +120,10 @@ export default {
 
 
 <style>
+.gallery * {
+  overflow: show;
+}
+
 .navbut {
   font-family: "DiGrotesk";
   display: inline-block;

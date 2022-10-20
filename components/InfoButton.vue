@@ -31,7 +31,7 @@ export default {
 
 <style>
 .infobutton {
-    display: inline-block;
+    vertical-align: middle;
     padding: calc(var(--space) - 1px);
     cursor: pointer;
     z-index: 30;
