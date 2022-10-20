@@ -64,7 +64,7 @@ export default {
         creativeEffect: {
           prev: {
             translate: [0, 0, 0],
-            rotate: [0, 0, -4],
+            rotate: [0, 0, 0],
             opacity: 0
           },
           next: {
