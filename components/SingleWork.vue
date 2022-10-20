@@ -1,8 +1,9 @@
 <template>
-  <div class="singleWork swiper__container">
 
+  <div class="singleWork swiper__container">
     <div class="gallery">
-      <div class="swiper mySwiper">
+      <img v-if="imagesGallery.length == 1" class="workImage" :src="imagesGallery[0].asset.url" alt="" srcset="">
+      <div v-if="imagesGallery.length > 1" class="swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide" :key="image.id" v-for="image in imagesGallery">
             <img :src="image.asset.url" class="workImage" />
@@ -29,13 +30,15 @@
         {{title}}
       </span>
       <span class="size smalltype">
-        {{size}}
+        {{sizeplace}}
       </span>
       <span class="medium smalltype">
-        {{medium}}
+        {{mediumyear}}
       </span>
     </div>
   </div>
+
+
 </template>
 
 <script>
@@ -48,15 +51,15 @@ export default {
   props: {
     type: String,
     title: String,
-    size: String,
-    medium: String,
+    sizeplace: String,
+    mediumyear: String,
     imagesGallery: [],
   },
   mounted() {
     document.querySelectorAll('.swiper').forEach(swiper => {
       const swiperEl = new Swiper(swiper, {
         // direction: vertical,
-        loop: true,
+        // loop: true,
         effect: 'creative',
         creativeEffect: {
           prev: {
@@ -64,7 +67,7 @@ export default {
             translate: [0, 0, -400],
           },
           next: {
-            translate: ["100%", 0, 0],
+            translate: [0, "100%", 0],
           },
         },
         // // remove unused modules if needed
@@ -180,6 +183,10 @@ export default {
   color: white;
   text-transform: uppercase;
   background-color: red;
+}
+
+.swiper-button-disabled {
+  color: grey;
 }
 
 @media screen and (max-width: 820px) {
