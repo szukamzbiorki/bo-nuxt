@@ -1,12 +1,12 @@
 <template>
-<div class="wrapper">
-    <Nuxt></Nuxt>
-    <Right/>
-</div>
+    <div class="wrapper">
+        <Nuxt></Nuxt>
+        <Right />
+    </div>
 </template>
 
 
 <script>
 
-    
+
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :style="{'--vh': windowHeight + 'vh'}">
     <Logo></Logo>
     <Content :works="works"></Content>
     <InfoBox></InfoBox>
@@ -14,8 +14,16 @@ export default {
     return {
       data: [],
       works: [],
-      wow: false
+      wow: false,
+      windowHeight: 0
     };
+  },
+  mounted() {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize);
   },
   methods: {
     //ALTERNATIVE WAY OF QUERY
@@ -26,6 +34,10 @@ export default {
     // }
     fetchData(query) {
       return this.$sanity.fetch(query);
+    },
+
+    onResize() {
+      this.windowHeight = window.innerHeight * 0.01
     }
   },
   async created() {

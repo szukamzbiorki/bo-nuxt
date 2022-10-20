@@ -22,6 +22,7 @@
     "sanity-blocks-vue-component": "^1.0.1",
     "swiper": "^8.4.4",
     "vue": "^2.6.14",
+    "vue-div-100vh": "^0.2.1",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
