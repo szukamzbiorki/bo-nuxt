@@ -44,7 +44,7 @@
             </div>
           </div>
           <!-- EDUCATION SECTION -->
-          <div class="currentexhibitions marbot">
+          <div class="education marbot">
             <div class="exhibitionstitle">EDUCATION</div>
             <div class="expoinstances">
               <div class="expogrid marbot" v-for="expo in data.education" v-bind:key="expo.id">
@@ -188,9 +188,15 @@ export default {
   width: 100% !important;
 }
 
+
+
 @media screen and (max-width: 820px) {
   .infobox {
     width: 100vw !important;
+  }
+
+  .education {
+    margin-bottom: 15vh;
   }
 
   .active {
