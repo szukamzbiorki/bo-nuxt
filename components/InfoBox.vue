@@ -104,8 +104,8 @@ export default {
   opacity: 100;
   left: calc(100vw - (2 * var(--space) + 30px));
   width: 65vw;
-  max-height: 100vh;
-  max-height: calc(var(--vh, 1vh) * 100);
+  /* max-height: 100vh; */
+  max-height: calc(var(--vh) * 100);
   overflow: hidden;
   /* background-color: #ffffff; */
   display: flex;

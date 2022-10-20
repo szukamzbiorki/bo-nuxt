@@ -110,6 +110,10 @@ export default {
   overflow: visible;
 }
 
+.size {
+  color: grey;
+}
+
 .gallery {
   overflow: visible;
 }
