@@ -196,7 +196,7 @@ export default {
   }
 
   .education {
-    margin-bottom: 15vh;
+    margin-bottom: 13vh;
   }
 
   .active {
