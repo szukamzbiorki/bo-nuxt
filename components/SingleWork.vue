@@ -88,6 +88,7 @@ export default {
 .navbut {
   font-family: "DiGrotesk";
   display: inline-block;
+  cursor: pointer;
 }
 
 .singleWork {
@@ -111,6 +112,7 @@ export default {
   margin-right: calc(var(--margin1) / 2);
   cursor: pointer;
   max-height: 70vh;
+  cursor: pointer;
 }
 
 .workImage:last-child {

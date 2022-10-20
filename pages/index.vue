@@ -50,7 +50,7 @@ body * {
   font-family: "DiGrotesk" !important;
   font-size: 13px !important;
   font-variant-numeric: tabular-nums;
-  cursor: pointer;
+  cursor: default;
 }
 
 .wrapper {
