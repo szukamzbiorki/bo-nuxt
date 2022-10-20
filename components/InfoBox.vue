@@ -112,7 +112,7 @@ export default {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  transition: 1s ease-in;
+  transition: .6s ease-in-out;
   /* background-color: grey; */
 }
 

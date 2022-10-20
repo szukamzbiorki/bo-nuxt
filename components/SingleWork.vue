@@ -1,5 +1,4 @@
 <template>
-
   <div class="singleWork swiper__container">
     <div class="gallery">
       <img v-if="imagesGallery.length == 1" class="workImage" :src="imagesGallery[0].asset.url" alt="" srcset="">
@@ -58,34 +57,21 @@ export default {
   mounted() {
     document.querySelectorAll('.swiper').forEach(swiper => {
       const swiperEl = new Swiper(swiper, {
-        // direction: vertical,
         loop: true,
         slidesPerView: 1,
         centeredSlides: true,
         effect: 'creative',
         creativeEffect: {
           prev: {
-            // shadow: true,
-            translate: [-50, 0, 0],
-            rotate: [0, 0, -5],
+            translate: [0, 0, 0],
+            rotate: [0, 0, -4],
+            opacity: 0
           },
           next: {
-            translate: ["101%", 0, 0],
+            translate: [0, "100%", 0],
+            opacity: 0
           },
-        },
-        // // remove unused modules if needed
-        // modules: [Navigation, Pagination, EffectCards, Autoplay],
-        // // Pagination if needed
-        // pagination: {
-        //   el: '.swiper-pagination',
-        //   type: 'bullets',
-        //   clickable: true,
-        // },
-        // Autoplay if needed
-        // autoplay: {
-        //   delay: 1500,
-        // },
-        // Navigation arrows if needed
+        }
       })
 
 
