@@ -55,6 +55,7 @@
               </div>
             </div>
           </div>
+          <div class="colophon">Website designed and built by <a href="https://b4rt3k.xyz">Bartek Pierściński</a></div>
         </div>
       </div>
     </div>
@@ -192,6 +193,15 @@ export default {
   border-bottom: solid 1.5px black;
   height: var(--margin1);
   width: 100% !important;
+}
+
+.colophon {
+  grid-column: 5 / 7;
+  color: lightgrey !important;
+}
+
+.colophon a {
+  color: lightgrey !important;
 }
 
 
