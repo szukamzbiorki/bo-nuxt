@@ -23,7 +23,8 @@ export default {
     display: block;
     white-space: nowrap;
     width: calc(60vw - 2*var(--space));
-    overflow-x: visible;
+    overflow-x: hidden;
+    overflow-y: hidden;
     /* transition: height 0.4s ease-out, opacity 0.2s ease-out; */
 }
 

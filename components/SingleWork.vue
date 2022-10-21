@@ -151,6 +151,7 @@ export default {
   display: block;
   width: calc(60vw - 40px);
   max-height: 70vh;
+  margin-bottom: 3px;
 }
 
 .workImage {
@@ -171,10 +172,11 @@ export default {
 }
 
 .descriptionBox {
-  margin-top: 5px;
+  margin-top: 0px;
   /* flex: 0 0 auto;
   min-width: 300px; */
   display: inline-block;
+  white-space: normal;
   /* white-space: pre-wrap; */
 }
 
