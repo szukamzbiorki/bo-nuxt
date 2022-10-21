@@ -63,6 +63,7 @@ export default {
         effect: 'creative',
         creativeEffect: {
           prev: {
+            shadow: true,
             translate: [0, 0, 0],
             rotate: [0, 0, 0],
             scale: 0.7,

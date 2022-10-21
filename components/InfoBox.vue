@@ -19,6 +19,7 @@
         <div class="contact">
           <div v-for="slot in data.contactinfo" v-bind:key="slot.id">{{slot}}</div>
         </div>
+        <div class="separator"></div>
         <!-- EXHIBITIONS SECTION -->
         <div class="exhibitions">
           <!-- UPCOMING EXHIBITIONS SECTION -->
@@ -143,6 +144,11 @@ export default {
 }
 
 .title {
+  grid-column: 1 / 7;
+}
+
+.separator {
+  height: 1em;
   grid-column: 1 / 7;
 }
 
