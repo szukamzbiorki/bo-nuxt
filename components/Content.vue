@@ -24,12 +24,12 @@ export default {
 
 <style scope>
 .workcontainer {
-  overflow-x: visible;
+  overflow-x: hidden;
   height: auto;
   width: 60vw;
   max-width: 60vw;
   margin: 0 0 0 var(--space);
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .workcontainer::-webkit-scrollbar {
