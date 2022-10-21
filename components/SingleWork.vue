@@ -1,7 +1,7 @@
 <template>
   <div class="singleWork swiper__container">
     <div class="gallery">
-      <img v-if="imagesGallery.length == 1" class="workImage" :src="imagesGallery[0].asset.url" alt="" srcset="">
+      <img v-if="imagesGallery.length < 2" class="workImage" :src="imagesGallery[0].asset.url" alt="" srcset="">
       <div v-if="imagesGallery.length > 1" class="swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide" :key="image.id" v-for="image in imagesGallery">
@@ -166,7 +166,8 @@ export default {
 }
 
 .swiper-slide-shadow {
-  display: none !important;
+  color: white;
+  /* display: none !important; */
 }
 
 .descriptionBox {
@@ -174,6 +175,7 @@ export default {
   /* flex: 0 0 auto;
   min-width: 300px; */
   display: inline-block;
+  /* white-space: pre-wrap; */
 }
 
 .descriptionBox * {

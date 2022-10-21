@@ -45,9 +45,9 @@ export default {
     // const numerek = this.$route.params.id;
     // const query = `*[_type == "work" && whatever == "${numerek}"]{title,size,medium,description,imagesGallery[]{asset->{url}}}`
     // this.works = await this.fetchData(query, numerek)
-    const query = "*[_type == \"work\"]{type,title,sizeplace,mediumyear,imagesGallery[]{asset->{url}}}| order(_createdAt desc)";
+    const query = "*[_type == \"work\"]{type,title,sizeplace,mediumyear,imagesGallery[]{asset->{url}}}| order(_updatedAt desc)";
     this.works = await this.fetchData(query);
-    console.log(this.works)
+    // console.log(this.works)
   },
   components: { InfoBox }
 }
