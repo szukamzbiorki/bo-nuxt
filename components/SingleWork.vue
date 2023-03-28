@@ -57,7 +57,7 @@ export default {
     document.querySelectorAll('.swiper').forEach(swiper => {
       const swiperEl = new Swiper(swiper, {
         loop: false,
-        // slidesPerView: 1,
+        slidesPerView: 1,
         // centeredSlides: true,
         effect: 'creative',
         creativeEffect: {
