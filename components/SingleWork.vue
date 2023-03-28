@@ -56,7 +56,7 @@ export default {
   mounted() {
     document.querySelectorAll('.swiper').forEach(swiper => {
       const swiperEl = new Swiper(swiper, {
-        loop: true,
+        loop: false,
         // slidesPerView: 1,
         // centeredSlides: true,
         effect: 'creative',
@@ -166,7 +166,10 @@ export default {
   margin-right: 0;
 }
 
-
+.swiper-slide {
+  background-color: #ededed;
+  height: 100% !important;
+}
 
 .swiper-slide-shadow {
   color: white;
@@ -232,7 +235,7 @@ export default {
   }
 
   .swiper-slide {
-    background-color: white;
+    background-color: #ededed;
   }
 }
 </style>
