@@ -151,7 +151,7 @@ export default {
   display: block;
   width: calc(60vw - 40px);
   max-height: 70vh;
-  margin-bottom: 3px;
+  margin-bottom: 7px;
 }
 
 .workImage {
@@ -165,6 +165,8 @@ export default {
 .workImage:last-child {
   margin-right: 0;
 }
+
+
 
 .swiper-slide-shadow {
   color: white;
@@ -227,6 +229,10 @@ export default {
   .descriptionBox * {
     overflow-wrap: break-word;
     display: inline-block;
+  }
+
+  .swiper-slide {
+    background-color: white;
   }
 }
 </style>
