@@ -10,12 +10,6 @@
         </div>
 
       </div>
-      <!-- If pagination is needed -->
-      <!-- <div class="swiper-pagination"></div> -->
-      <!-- If navigation buttons are needed -->
-      <!-- <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div> -->
-
     </div>
     <!-- <Workimages :images="imagesGallery"></Workimages>
     <WorkDescription :type="type" :title="title" :size="size" :medium="medium" /> -->
@@ -23,25 +17,30 @@
       <div v-if="imagesGallery.length > 1" class="slidePrev-btn navbut">&#8592;</div>
       <div v-if="imagesGallery.length > 1" class="slideNext-btn navbut">&#8594;</div>
       <span :class="type">
-        {{type}}
+        {{ type }}
       </span>
       <span class="worktitle bigtype">
-        {{title}}
+        {{ title }}
       </span>
       <span class="size smalltype">
-        {{sizeplace}}
+        {{ sizeplace }}
       </span>
       <span class="medium smalltype">
-        {{mediumyear}}
+        {{ mediumyear }}
       </span>
     </div>
   </div>
-
-
 </template>
 
 <script>
-import { Swiper, Navigation, Pagination, EffectCards, Autoplay, EffectCreative } from 'swiper';
+import {
+  Swiper,
+  Navigation,
+  Pagination,
+  EffectCards,
+  Autoplay,
+  EffectCreative
+} from 'swiper';
 import 'swiper/swiper-bundle.min.css'
 
 Swiper.use([Navigation, EffectCreative, EffectCards]);
@@ -63,10 +62,10 @@ export default {
         effect: 'creative',
         creativeEffect: {
           prev: {
-            shadow: true,
+            shadow: false,
             translate: [0, 0, 0],
             rotate: [0, 0, 0],
-            scale: 0.7,
+            scale: 1,
             opacity: 0
           },
           next: {

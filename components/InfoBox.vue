@@ -5,19 +5,18 @@
       <img class="biglogo" src="../static/assets/logorender.png" alt="">
       <div class="infocontainer">
         <!-- INTRO SECTION -->
-
-        <div class="title">{{data.name}}</div>
+        <div class="title">{{ data.name }}</div>
         <div class="intro">
           <div class="descriptiontext">
-            {{data.bio}}
+            {{ data.bio }}
           </div>
           <div class="quote">
-            {{data.quote}}
+            {{ data.quote }}
           </div>
         </div>
         <!-- CONTACT SECTION -->
         <div class="contact">
-          <div v-for="slot in data.contactinfo" v-bind:key="slot.id">{{slot}}</div>
+          <div v-for="slot in data.contactinfo" v-bind:key="slot.id">{{ slot }}</div>
         </div>
         <div class="separator"></div>
         <!-- EXHIBITIONS SECTION -->
@@ -27,9 +26,9 @@
             <div class="exhibitionstitle">UPCOMING EXHIBITIONS</div>
             <div class="expoinstances">
               <div class="expogrid marbot" v-for="expo in data.upexpos" v-bind:key="expo.id">
-                <div>{{expo.year}}</div>
-                <div>{{expo.place}}</div>
-                <div>{{expo.citycountry}}</div>
+                <div>{{ expo.year }}</div>
+                <div>{{ expo.place }}</div>
+                <div>{{ expo.citycountry }}</div>
               </div>
             </div>
           </div>
@@ -38,9 +37,9 @@
             <div class="exhibitionstitle">EXHIBITIONS</div>
             <div class="expoinstances">
               <div class="expogrid marbot" v-for="expo in data.expos" v-bind:key="expo.id">
-                <div>{{expo.year}}</div>
-                <div>{{expo.place}}</div>
-                <div>{{expo.citycountry}}</div>
+                <div>{{ expo.year }}</div>
+                <div>{{ expo.place }}</div>
+                <div>{{ expo.citycountry }}</div>
               </div>
             </div>
           </div>
@@ -49,9 +48,9 @@
             <div class="exhibitionstitle">EDUCATION</div>
             <div class="expoinstances">
               <div class="expogrid marbot" v-for="expo in data.education" v-bind:key="expo.id">
-                <div>{{expo.year}}</div>
-                <div>{{expo.place}}</div>
-                <div>{{expo.citycountry}}</div>
+                <div>{{ expo.year }}</div>
+                <div>{{ expo.place }}</div>
+                <div>{{ expo.citycountry }}</div>
               </div>
             </div>
           </div>
@@ -106,22 +105,18 @@ export default {
   opacity: 100;
   left: calc(100vw - (2 * var(--space) + 30px));
   width: 65vw;
-  /* max-height: 100vh; */
   max-height: calc(var(--vh) * 100);
   overflow: hidden;
-  /* background-color: #ffffff; */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   transition: .6s ease-in-out;
-  /* background-color: grey; */
 }
 
 .active {
   left: 35vw !important;
   opacity: 100 !important;
-  /* background-color: #ffffff !important; */
 }
 
 .infocontent {
