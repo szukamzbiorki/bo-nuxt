@@ -58,6 +58,7 @@ export default {
       const swiperEl = new Swiper(swiper, {
         loop: false,
         slidesPerView: 1,
+        simulateTouch: false,
         // centeredSlides: true,
         effect: 'creative',
         creativeEffect: {
